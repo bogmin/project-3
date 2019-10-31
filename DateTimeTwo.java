@@ -86,6 +86,48 @@ public class DateTimeTwo {
 	}
 	public void compareYear() throws IOException {
 		readIn();
+		date = LocalDateTime.now();
+		for(HashMap.Entry<LocalDate,Integer> entry : comparing.entrySet()) {
+			LocalDate datum = entry.getKey();
+			int yearDifference = 0;
+			int monthDifference = 0;
+			int dayDifference = 0;
+			if(datum.getYear() > date.getYear()) {
+				yearDifference = datum.getYear() - date.getYear();
+			}
+			else if(datum.getYear() < date.getYear()) {
+				yearDifference = date.getYear() - datum.getYear();
+			}
+			else if (datum.getYear() == date.getYear()) {
+				yearDifference = 0;
+			}
+			if(datum.getMonthValue() > date.getMonthValue()) {
+				monthDifference = datum.getMonthValue() - date.getMonthValue();
+			}
+			else if(datum.getMonthValue() < date.getMonthValue()) {
+				monthDifference = date.getMonthValue() - datum.getMonthValue();
+			}
+			else if (datum.getMonthValue() == date.getMonthValue()) {
+				monthDifference = 0;
+			}
+			if(datum.getDayOfYear() > date.getDayOfYear()) {
+				dayDifference = datum.getDayOfYear() - date.getDayOfYear();
+			}
+			else if(datum.getDayOfYear() < date.getDayOfYear()) {
+				dayDifference = date.getDayOfYear() - datum.getDayOfYear();
+			}
+			else if (datum.getDayOfYear() == date.getDayOfYear()) {
+				dayDifference = 0;
+			}
+			if(datum.getYear() % 4 == 0) {
+				System.out.println(datum.getYear() + " is a leap year, and Difference: " + yearDifference + " years, " + monthDifference + " months, and " + dayDifference + " days.");
+			}
+			else if (datum.getYear() % 4 != 0) {
+				System.out.println(datum.getYear() + " is not a leap year, and Difference: " + yearDifference + " years, " + monthDifference + " months, and " + dayDifference + " days.");
+			}
+		}
+	}
+
 	}
 
 
