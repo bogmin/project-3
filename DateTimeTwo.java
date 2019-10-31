@@ -84,6 +84,8 @@ public class DateTimeTwo {
 		}
 		reader.close();
 	}
-	
+	public void compareYear() throws IOException {
+		readIn();
+	}
 
 
