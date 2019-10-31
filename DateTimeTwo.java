@@ -127,7 +127,18 @@ public class DateTimeTwo {
 			}
 		}
 	}
-
+	public void dateHashMap() {
+		for(HashMap.Entry<LocalDate,Integer> entry : comparing.entrySet()) {
+			System.out.println(entry.getKey() + ":" + entry.getValue());
+		}
+	}
+	public void dateHashMapSorted() {
+		TreeMap<LocalDate,Integer> forSorting = new TreeMap<>();
+		forSorting.putAll(comparing);
+		for (HashMap.Entry<LocalDate,Integer> entry : forSorting.entrySet()) {
+			System.out.println(entry.getKey() + ":" + entry.getValue());
+		}
+	}
 	}
 
 
