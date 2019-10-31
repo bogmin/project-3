@@ -22,7 +22,16 @@ public class DateTimeTwo {
 	public DateTimeTwo() {
 		
 	}
+	public void daysOfCurrentMonth() {
+		String output1 = String.format("%d-%d-%d", year, month, ten);
+		Date dateIndividual = null;
+		try {
+			dateIndividual = new SimpleDateFormat("yyyy-M-d").parse(output1);
+		}
+		catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
 }
-
 
 
