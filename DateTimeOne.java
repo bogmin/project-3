@@ -38,4 +38,35 @@ public class DateTimeOne extends MesoDateTimeOneAbstract
 			e.printStackTrace();
 		}
 	}
+	@Override
+	void dateTimeOfOtherCity() {
+		System.out.println(String.format("Time on Server: %02d:%02d", date.getHour(),date.getMinute()));
+		System.out.println("GMT: " + date.atZone(ZoneId.of("Asia/Karachi")).format(DateTimeFormatter.ofPattern("h:mm").withZone(ZoneOffset.UTC)));
+		System.out.println("BST (90E): " + date.atZone(ZoneId.of("Asia/Dhaka")).format(DateTimeFormatter.ofPattern("h:mm").withZone(ZoneOffset.UTC)));
+		System.out.println(String.format("CST (90W): %02d:%02d", date.getHour(),date.getMinute()));
+		
+	}
+	@Override
+	void dateTimeDifferentZone() {
+		System.out.println("GMT: " + date.atZone(ZoneId.of("Asia/Karachi")).format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm").withZone(ZoneOffset.UTC)));
+		System.out.println("BST: " + date.atZone(ZoneId.of("Asia/Dhaka")).format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm").withZone(ZoneOffset.UTC)));
+		System.out.println(String.format("CST: %02d/%02d/%04d %02d:%02d", date.getMonthValue(), date.getDayOfMonth(), date.getYear(), date.getHour(), date.getMinute()));
+		
+		timeOtherZones.put("GMT", date.atZone(ZoneId.of("Asia/Karachi")).format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm").withZone(ZoneOffset.UTC)));
+		timeOtherZones.put("BST", date.atZone(ZoneId.of("Asia/Dhaka")).format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm").withZone(ZoneOffset.UTC)));
+		timeOtherZones.put("CST", date.atZone(ZoneId.of("US/Central")).format(DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm").withZone(ZoneOffset.UTC)));
+		
+//		for(HashMap.Entry<String,String> entry : timeOtherZones.entrySet()) {
+//			System.out.println(entry.getKey() + ": " + entry.getValue());
+//		}
+		
+	}
+	@Override
+	void timeZoneHashMap() {
+		timeOtherZones.put("AST","10/01/2020 19:59");
+		timeOtherZones.put("ZST","11/05/2018 19:59");
+		for(HashMap.Entry<String,String> entry : timeOtherZones.entrySet()) {
+			sortingGarbage.put(entry.getValue(),entry.getKey());
+	}
+	}
 }
