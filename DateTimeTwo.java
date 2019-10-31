@@ -31,7 +31,18 @@ public class DateTimeTwo {
 		catch (ParseException e) {
 			e.printStackTrace();
 		}
+		String output2 = String.format("%d-%d-%d", year, month, eighteen);
+		Date dateIndividual2 = null;
+		try {
+			dateIndividual2 = new SimpleDateFormat("yyyy-M-d").parse(output2);
+		}
+		catch (ParseException e) {
+			e.printStackTrace();
+		}
+		String dayOfWeek = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(dateIndividual);
+		String dayOfWeek2 = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(dateIndividual2);
+		System.out.println("The tenth day of this month is " + dayOfWeek.toUpperCase() + " and eighteenth is " + dayOfWeek2.toUpperCase());
 	}
-}
+	
 
 
