@@ -68,5 +68,29 @@ public class DateTimeOne extends MesoDateTimeOneAbstract
 		for(HashMap.Entry<String,String> entry : timeOtherZones.entrySet()) {
 			sortingGarbage.put(entry.getValue(),entry.getKey());
 	}
+		LocalDateTime[] why = new LocalDateTime[5];
+		int i = 0;
+		for(HashMap.Entry<String,String> entry : sortingGarbage.entrySet()) {
+			String now = entry.getKey();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm");
+			LocalDateTime formatDateTime = LocalDateTime.parse(now,formatter);
+			why[i] = formatDateTime;
+			++i;
+		}
+		System.out.println("Print Style 1:");
+		TreeMap<String,String> sorting = new TreeMap<>();
+		sorting.putAll(timeOtherZones);
+		for(HashMap.Entry<String,String> entry : sorting.entrySet()) {
+			System.out.println(entry.getKey() + " " + entry.getValue());
+		}
+		System.out.println("Print Style 3:");
+		for(HashMap.Entry<String,String> entry : sorting.entrySet()) {
+			System.out.println(entry.getValue());
+		}
+		System.out.println("Print Style 5: Final sorted Array:");
+		Arrays.sort(why, Collections.reverseOrder());
+		for(int j = 0; j < why.length; ++j) {
+			System.out.println(why[j]);
+		}
+		}
 	}
-}
