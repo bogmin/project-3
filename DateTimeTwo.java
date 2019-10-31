@@ -70,6 +70,20 @@ public class DateTimeTwo {
 		
 		System.out.println("For the year (" + year + ") and month (" + month + "), the fifteenth day is " + dayOfWeek.toUpperCase() + " and the last day is " + dayOfMonth.toUpperCase());
 	}
+	public void readIn() throws IOException{
+		int i = 0;
+		BufferedReader reader = new BufferedReader(new FileReader("Dates.txt"));
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM.dd.yyyy");
+		String date = reader.readLine();
+		LocalDate datum = null;
+		while (date != null) {
+			datum = LocalDate.parse(date,formatter);
+			i++;
+			comparing.put(datum,i);
+			date = reader.readLine();
+		}
+		reader.close();
+	}
 	
 
 
