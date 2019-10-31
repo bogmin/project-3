@@ -29,21 +29,27 @@ public class MesoAsciiCal extends MesoAsciiAbstract
 	}
 	@Override
 	int calAverage() {
-		int[] values = new int[station.getStID().length()];
-		double avg = 0;
+		//int[] values = new int[station.getStID().length()];
+		//double avg = 0;
 		
-		for(int i = 0; i < station.getStID().length(); ++i) {
-			char letter = station.getStID().charAt(i);
-			int ascii = (int) letter;
-			values[i] = ascii;
-		}
-		for(int i = 0; i < values.length; ++i) {
-			avg = avg + values[i];
-			}
-		avg = avg / values.length;
-		results = (int) Math.ceil(avg);
-		return results; 
-		
+		//for(int i = 0; i < station.getStID().length(); ++i) {
+			//char letter = station.getStID().charAt(i);
+			//int ascii = (int) letter;
+			//values[i] = ascii;
+		//}
+		//for(int i = 0; i < values.length; ++i) {
+			//avg = avg + values[i];
+			//}
+		//avg = avg / values.length;
+		//results = (int) Math.ceil(avg);
+		//return results; 
+		double z = 0;
+		int firstAvg = firstAvg();
+		int secondAvg = secondAvg();
+		z = firstAvg + secondAvg;
+		z = z / 2;
+		results = (int)Math.ceil(z);
+		return results;
 	}
    
 }
